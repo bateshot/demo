@@ -39,17 +39,25 @@
     //GETTING PEOPLE AND FILTERING
     //custom event for the update table
     $document.on('updateTable', function(){
-        var filter,
+        var filter = {},
             $newRow = $('<tr>');
-        console.log('we are here');
-        data.get();
+
+        $('#filter input').each(function(){
+            if(this.value && this.value != ''){
+                console.log(this.value)
+                filter[this.name] = this.value;
+            }
+        });
+
+        console.log(filter);
+        data.get(filter);
     });
 
 
 
     //FILTER CLICK EVENT
-    $document.on('click', '#filter', function(e){
-        alert('clicked!');
+    $('#filter').on('submit', function(e){
+        e.preventDefault();
         $(this).trigger('updateTable');
     })
 

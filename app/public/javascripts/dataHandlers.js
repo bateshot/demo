@@ -15,18 +15,18 @@ var data = {
     },
     // **********
     // get people
-    get: function(filter){
+    get: function(filter, callback){
         var queryString = '';
 
         if(filter && filter.length !== 0){
             queryString = '?';
             $.each( filter, function( key, value ) {
                 queryString += key;
-                queryString += '&';
+                queryString += '=';
                 queryString += value;
+                queryString += '&';
             });
         }
-        console.log(queryString)
         $.get('/api/collection' + queryString, function(data){
             console.log(data);
         });
