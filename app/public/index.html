@@ -15,21 +15,6 @@
       <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
       <script src="../bower_components/respond/dest/respond.min.js"></script>
     <![endif]-->
-    <script>
-
-     var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-23019901-1']);
-      _gaq.push(['_setDomainName', "bootswatch.com"]);
-        _gaq.push(['_setAllowLinker', true]);
-      _gaq.push(['_trackPageview']);
-
-     (function() {
-       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-     })();
-
-    </script>
   </head>
   <body>
   <!-- ****************** -->
@@ -40,6 +25,7 @@
   <!-- ****************** -->
   <!-- TITLE -->
   <!-- ****************** -->
+  <div class="container">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -130,7 +116,7 @@
 
 
 
-    <div class="container">
+
 
     <!-- ****************** -->
     <!-- FILTERS -->
@@ -138,18 +124,23 @@
       <div class="form-group">
         <div class="input-group filter">
           <form id="filter">
-            <input type="text" class="form-control col-md-2" name="firstName" placeholder="search first name">
-            <input type="text" class="form-control col-md-2" name="lastName" placeholder="search last name">
-            <select class="form-control" name="favoriteColor">
-                <option></option>
-                <option>blue</option>
-                <option>green</option>
-                <option>red</option>
-                <option>yellow</option>
-                <option>black</option>
-                <option>white</option>
-            </select>
-
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="firstName" placeholder="search first name">
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="lastName" placeholder="search last name">
+            </div>
+            <div class="col-md-4">
+                <select class="form-control" name="favoriteColor">
+                    <option></option>
+                    <option>blue</option>
+                    <option>green</option>
+                    <option>red</option>
+                    <option>yellow</option>
+                    <option>black</option>
+                    <option>white</option>
+                </select>
+            </div>
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit">Filter</button>
             </span>
