@@ -24,14 +24,10 @@
         };
 
         //VALIDATION
-        if(formData.firstName.length === 0 || formData.lastName.length === 0){
+        if($.trim(formData.firstName) == '' || $.trim(formData.lastName) == ''){
             toastr.warning('Invalid names provided!');
             return;
         }
-
-        //TODO validate string with spaces only
-
-        console.log(formData);
         //post here
         data.set(formData);
     });
@@ -41,6 +37,7 @@
     $document.on('updateTable', function(){
         var filter = {},
             $newRow = $('<tr>'),
+            colorFilter = $('#filter select option:selected').text(),
             $tableBody = $('#mainTable tbody').first();
 
         $('#filter input').each(function(){
@@ -48,6 +45,10 @@
                 filter[this.name] = this.value;
             }
         });
+        if(colorFilter != ''){
+            console.log(colorFilter);
+            filter['favoriteColor'] = colorFilter;
+        }
 
 
 
