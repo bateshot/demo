@@ -27,8 +27,13 @@ var data = {
                 queryString += '&';
             });
         }
-        $.get('/api/collection' + queryString, function(data){
-            console.log(data);
+        $.get('/api/collection' + queryString, function(res){
+            if(res.error){
+                toastr.error(res.error);
+            }
+            else{
+                callback(res.data);
+            }
         });
     }
 }

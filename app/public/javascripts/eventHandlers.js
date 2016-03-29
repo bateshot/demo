@@ -40,17 +40,32 @@
     //custom event for the update table
     $document.on('updateTable', function(){
         var filter = {},
-            $newRow = $('<tr>');
+            $newRow = $('<tr>'),
+            $tableBody = $('#mainTable tbody').first();
 
         $('#filter input').each(function(){
             if(this.value && this.value != ''){
-                console.log(this.value)
                 filter[this.name] = this.value;
             }
         });
 
-        console.log(filter);
-        data.get(filter);
+
+
+        //Reset body
+        $tableBody.html('');
+
+
+        //Generate table
+        data.get(filter, function(people){
+            $.each(people, function(index, person){
+                $newRow = $('<tr>');
+                $newRow.append('<td>' + (index + 1) + '</td>');
+                $newRow.append('<td>' + person.firstName + '</td>');
+                $newRow.append('<td>' + person.lastName + '</td>');
+                $newRow.append('<td>' + person.favoriteColor + '</td>');
+                $tableBody.append($newRow);
+            })
+        });
     });
 
 
