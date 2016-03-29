@@ -1,6 +1,9 @@
 (function($){
     'use strict';
-    $(document).ready(function(){
+    var $document = $(document);
+
+
+    $document.ready(function(){
         toastr.success('toastr up and running');
     });
 
@@ -34,7 +37,24 @@
     });
 
     //GETTING PEOPLE AND FILTERING
-    //TODO
+    //custom event for the update table
+    $document.on('updateTable', function(){
+        var filter,
+            $newRow = $('<tr>');
+        console.log('we are here');
+        data.get();
+    });
+
+
+
+    //FILTER CLICK EVENT
+    $document.on('click', '#filter', function(e){
+        alert('clicked!');
+        $(this).trigger('updateTable');
+    })
+
+    //Loading data getter
+    $document.trigger('updateTable');
 
 
     //COLORING ROWS
