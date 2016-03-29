@@ -1,3 +1,28 @@
 .filter form input {
     display: inline-block;
 }
+
+
+.red{
+    background-color: red;
+}
+
+.green{
+    background-color: green;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.black{
+    background-color: black;
+}
+
+.white{
+    background-color: white;
+}

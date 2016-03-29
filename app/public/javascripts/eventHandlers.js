@@ -81,6 +81,10 @@
 
 
     //COLORING ROWS
-    //TODO
+    $('table').on('dblclick', 'td:last-child', function(){
+        var $this = $(this);
+        $this.parent().css('background-color', $this.text());
+    })
+
 
 }(jQuery));
