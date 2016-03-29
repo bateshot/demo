@@ -1,9 +1,9 @@
 (function(){
     'use strict';
-    var mongoose = require('mongoose'),
-        PersonModel = require('./personModel.js');
+    var PersonModel = require('./personModel.js'),
+        mongoose = require('mongoose');
 
-
+    PersonModel.init();
     module.exports = function(config) {
         mongoose.connect(config.db);
         var db = mongoose.connection;
@@ -21,6 +21,6 @@
             console.log('Database error: ' + err);
         });
 
-        PersonModel.init();
+
     }
 }());
