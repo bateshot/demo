@@ -4,13 +4,14 @@
 
     module.exports = {
 
-        postPerson: function(req, res, next) {
+        postPerson: function(req, res) {
             //console.log(req.body);
             person.create(req.body, function(err){
                 if(err){
                     res.json({error: err.message});
                 }
                 else {
+                    console.log('Before res end');
                     res.json({data: req.body.firstName + ' added successfully!'});
                 }
             })
