@@ -11,14 +11,21 @@
                     res.json({error: err.message});
                 }
                 else {
-                    console.log('Before res end');
                     res.json({data: req.body.firstName + ' added successfully!'});
                 }
             })
 
         },
         getPeople: function(req, res){
-            res.json({data: 'respond future People list received'});
+
+            person.find(req.query, function(err, people){
+                if(err){
+                    res.json({error: 'Error getting items!'});
+                }
+                else{
+                    res.json({data: people});
+                }
+            })
         }
     };
 }());

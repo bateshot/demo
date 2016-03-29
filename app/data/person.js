@@ -43,9 +43,15 @@
             }
         });
     }
-
-    function getPeople(options){
-        //TODO
+    //Finds people based on input query string
+    function getPeople(options, callback){
+        Person.find(options, function(err, people){
+            if(err){
+                callback(err);
+            }else{
+                callback(err, people);
+            }
+        })
     }
 
     module.exports = {
