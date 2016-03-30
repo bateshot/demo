@@ -46,7 +46,14 @@
             return;
         }
         //post here
-        data.set(formData);
+        data.set(formData, function(status){
+            if(status === 'success'){
+                //Clear form, close modal, update table
+                $('.modal form').find("input[type=text], textarea").val("");
+                $('.modal').modal('toggle');
+                $document.trigger('updateTable');
+            }
+        });
     });
 
     //GETTING PEOPLE AND FILTERING

@@ -3,13 +3,15 @@
 var data = {
     // **************
     // set new person
-    set: function(data){
+    set: function(data, callback){
         $.post('/api/collection', data, function(res){
             if(res.error){
                 toastr.error(res.error);
+                callback('error');
             }
             else{
                 toastr.success(res.data);
+                callback('success');
             }
         })
     },
