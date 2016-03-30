@@ -5,6 +5,9 @@
 
     $document.ready(function(){
         toastr.success('toastr up and running');
+        data.getColors(function(colors){
+            console.log(colors);
+        });
     });
 
 

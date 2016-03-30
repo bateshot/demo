@@ -35,6 +35,16 @@ var data = {
                 callback(res.data);
             }
         });
+    },
+    getColors: function(callback){
+        $.get('/api/colors', function(res){
+            if(res.error){
+                toastr.error(res.error);
+            }
+            else{
+                callback(res.data);
+            }
+        });
     }
 }
 
