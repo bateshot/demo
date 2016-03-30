@@ -83,8 +83,19 @@
 
     //COLORING ROWS
     $('table').on('dblclick', 'td:last-child', function(){
-        var $this = $(this);
-        $this.parent().css('background-color', $this.text());
+        var $this = $(this),
+            color = $this.text(),
+            $parent = $this.parent();
+
+        //Toggle color on DBclick
+        if (!$parent.attr('style')){
+            $parent.attr('style', 'background-color: ' + color);
+        }
+        else {
+            $parent.removeAttr('style');
+        }
+
+
     })
 
 
