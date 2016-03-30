@@ -9,11 +9,13 @@
             {name: 'red',
             code: '#FF0000'},
             {name: 'yellow',
-            code: '#FF0000'},
+            code: '#FFFF00'},
             {name: 'black',
             code: '#000000'},
             {name: 'white',
             code: '#FFFFFF'},
+            {name: 's*** brown',
+            code: '#663300'},
         ]
     }
 }());

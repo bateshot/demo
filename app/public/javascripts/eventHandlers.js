@@ -1,12 +1,26 @@
 (function($){
     'use strict';
     var $document = $(document);
+    var colorArr;
 
 
     $document.ready(function(){
         toastr.success('toastr up and running');
+
+        // generate color select sections
         data.getColors(function(colors){
-            console.log(colors);
+
+            var $select = $('select.color-option'),
+                $option = $('<option>');
+
+            //make colors global to page
+            colorArr = colors;
+
+
+            //Append selects
+            $.each(colors, function(index, color){
+                $select.append('<option>' + color.name + '</option>');
+            });
         });
     });
 
@@ -87,12 +101,21 @@
     //COLORING ROWS
     $('table').on('dblclick', 'td:last-child', function(){
         var $this = $(this),
-            color = $this.text(),
+            colorName = $this.text(),
+            colorCode = '#FFFFFF',
             $parent = $this.parent();
+
+        //Get color code
+        $.each(colorArr, function(index, item){
+            if(colorName === item.name){
+                colorCode = item.code;
+                return;
+            }
+        })
 
         //Toggle color on DBclick
         if (!$parent.attr('style')){
-            $parent.attr('style', 'background-color: ' + color);
+            $parent.attr('style', 'background-color: ' + colorCode);
         }
         else {
             $parent.removeAttr('style');
